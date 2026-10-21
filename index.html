@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STEP</title>
+<meta name="description" content="STEP drum step sequencer by Fundamental Tools">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="STEP">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#262629">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>html,body{margin:0} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} [hidden]{display:none!important}</style>
+</head>
+<body>
+<style>
+/* Layout: one column app — title bar, three control rows (transport / pattern / sound), then the pad grid.
+   Single dark look on purpose: it is the STEP app's own colour scheme (Fundamental Tools guide). */
+:root {
+  color-scheme: dark;
+  --bg: #262629;          /* window */
+  --panel: #1C1C1F;       /* grid background */
+  --overlay: #121214;     /* info panel */
+  --btn: #3A3A3F;
+  --btn-hover: #46464C;
+  --btn-active: #EBEBEB;
+  --line: rgba(255,255,255,.12);
+  --text: #EBEBEB;
+  --text-2: #8C8C94;
+  --ok: #59D973;
+  --focus: #FAD940;
+  --kick: #ED5442; --snare: #FA9E33; --hat: #FAD940; --tom: #73CC66; --teal: #4CB899;
+  --font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --ctl-h: 32px;
+}
+@media (pointer: coarse) { :root { --ctl-h: 40px; } }
+* { box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--text); font: 14px/1.35 var(--font);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 16px 24px;
+  -webkit-tap-highlight-color: transparent;
+}
+.app { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+/* title block */
+.top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.logo { font: bold 42px/1 var(--font); letter-spacing: 2px; margin: 0; }
+.logo span:nth-child(1) { color: var(--kick); }
+.logo span:nth-child(2) { color: var(--snare); }
+.logo span:nth-child(3) { color: var(--hat); }
+.logo span:nth-child(4) { color: var(--tom); }
+.creator { display: flex; align-items: center; gap: 10px; margin-top: 8px; color: #C7C7CC;
+  font: bold 10.5px/1 var(--font); letter-spacing: 1.6px; }
+.minipads { display: flex; gap: 3px; }
+.minipads i { width: 7px; height: 7px; border-radius: 2px; display: block; }
+
+/* controls */
+.rows { display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.group { display: flex; align-items: center; gap: 8px; }
+.label { color: var(--text); }
+.hint { color: var(--text-2); font-size: 12px; }
+button, select, input[type=number] {
+  font: 13px var(--font); color: var(--text); background: var(--btn);
+  border: 0; border-radius: 6px; height: var(--ctl-h); padding: 0 12px;
+}
+button { cursor: pointer; white-space: nowrap; }
+button:hover:not(:disabled) { background: var(--btn-hover); }
+button:disabled { opacity: .45; cursor: default; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+select { padding-right: 28px; max-width: 260px; }
+input[type=number] { width: 72px; font-variant-numeric: tabular-nums; padding: 0 8px; }
+
+.play { display: inline-flex; align-items: center; gap: 8px; padding: 0 14px 0 12px; min-width: 92px; font-weight: bold; }
+.play svg { width: 14px; height: 14px; fill: currentColor; }
+.play[aria-pressed="true"] { background: var(--ok); color: #10200F; }
+
+.seg { display: inline-flex; background: var(--btn); border-radius: 6px; padding: 2px; gap: 2px; }
+.seg button { height: calc(var(--ctl-h) - 4px); background: transparent; padding: 0 12px; border-radius: 4px; }
+.seg button[aria-pressed="true"] { background: var(--btn-active); color: #141416; }
+.seg button:hover:not([aria-pressed="true"]):not(:disabled) { background: var(--btn-hover); }
+
+.switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+.switch input { appearance: none; width: 34px; height: 20px; border-radius: 10px; background: var(--btn);
+  position: relative; margin: 0; cursor: pointer; transition: background .15s; }
+.switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--text-2); transition: transform .15s, background .15s; }
+.switch input:checked { background: var(--ok); }
+.switch input:checked::after { transform: translateX(14px); background: #10200F; }
+
+input[type=range] { width: 110px; accent-color: var(--ok); }
+
+/* grid */
+.gridwrap { position: relative; background: var(--panel); border-radius: 8px; overflow: hidden; }
+#grid { display: block; width: 100%; touch-action: none; cursor: pointer; }
+.toast { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); background: var(--overlay);
+  border: 1.5px solid var(--ok); border-radius: 14px; padding: 6px 14px; font-weight: bold; font-size: 12px;
+  white-space: nowrap; max-width: calc(100% - 24px); overflow: hidden; text-overflow: ellipsis;
+  opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.show { opacity: 1; }
+.foot { color: var(--text-2); font-size: 12px; }
+.foot kbd { font: inherit; color: var(--text); background: var(--btn); border-radius: 4px; padding: 1px 6px; }
+
+/* info panel */
+.info { position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.45); }
+.info[hidden] { display: none; }
+.info {
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px))
+           max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.info-card { background: var(--overlay); border: 1px solid var(--line); border-radius: 10px; width: min(860px, 100%);
+  max-height: 100%; overflow: auto; padding: 18px 20px 20px; }
+.info-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.info-head h2 { margin: 0; font-size: 16px; }
+.info-head span { color: var(--text-2); font-size: 12px; }
+.info-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 28px; }
+@media (max-width: 640px) { .info-cols { grid-template-columns: 1fr; } }
+.info h3 { font-size: 12px; letter-spacing: .6px; margin: 10px 0 8px; padding-bottom: 5px; border-bottom: 1px solid; }
+.info .c1 h3 { color: var(--snare); border-color: color-mix(in srgb, var(--snare) 35%, transparent); }
+.info .c2 h3 { color: var(--teal); border-color: color-mix(in srgb, var(--teal) 35%, transparent); }
+.info dl { display: grid; grid-template-columns: 104px 1fr; gap: 7px 10px; margin: 0; font-size: 13px; }
+.info dt { font-weight: bold; }
+.info dd { margin: 0; color: #C0C0C6; min-width: 0; }
+
+@media (max-width: 560px) {
+  .logo { font-size: 34px; }
+  select { max-width: 190px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="app">
+  <header class="top">
+    <div>
+      <h1 class="logo" aria-label="STEP"><span>S</span><span>T</span><span>E</span><span>P</span></h1>
+      <div class="creator">
+        <span class="minipads" aria-hidden="true">
+          <i style="background:var(--kick)"></i><i style="background:#4D4D52"></i><i style="background:var(--hat)"></i><i style="background:#C7EBC2"></i>
+        </span>
+        Fundamental Tools
+      </div>
+    </div>
+    <button id="infoBtn" type="button">Info</button>
+  </header>
+
+  <div class="rows">
+    <div class="row">
+      <button id="playBtn" class="play" type="button" aria-pressed="false" title="Play / stop (spacebar)">
+        <svg viewBox="0 0 14 14" aria-hidden="true"><path id="playIcon" d="M2 1l11 6-11 6z"/></svg><span id="playLabel">Play</span>
+      </button>
+      <label class="group"><span class="label">BPM</span><input id="bpm" type="number" min="40" max="300" step="1" value="120" inputmode="numeric"></label>
+      <button id="clearPage" type="button">Clear page</button>
+      <button id="clearAll" type="button">Clear all</button>
+      <button id="exportBtn" type="button">Export MIDI</button>
+    </div>
+    <div class="row">
+      <label class="group"><span class="label">Time sig</span>
+        <select id="meter"></select>
+      </label>
+      <div class="group"><span class="label">Pages</span>
+        <div class="seg" id="pagesSeg" role="group" aria-label="Pattern length in pages"></div>
+      </div>
+      <label class="switch"><input id="follow" type="checkbox" checked><span>Follow</span></label>
+      <button id="copyPage" type="button">Copy page</button>
+      <button id="pastePage" type="button">Paste page</button>
+      <button id="copyFirst" type="button">Page 1 to all</button>
+    </div>
+    <div class="row">
+      <div class="group"><span class="label">Output</span>
+        <div class="seg" role="group" aria-label="Output">
+          <button id="outAudio" type="button" aria-pressed="true">Audio</button>
+          <button id="outMidi" type="button" aria-pressed="false">MIDI</button>
+        </div>
+      </div>
+      <label class="group" id="midiDevGroup" hidden><span class="label">MIDI device</span><select id="midiDev"></select></label>
+      <label class="group" id="volGroup"><span class="label">Volume</span><input id="vol" type="range" min="0" max="1" step="0.01" value="0.75"></label>
+      <span class="hint" id="midiHint"></span>
+    </div>
+  </div>
+
+  <div class="gridwrap">
+    <canvas id="grid" aria-label="Drum pattern grid. Rows from top: crash, ride, high tom, mid tom, floor tom, hi-hat, snare, kick."></canvas>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <p class="foot" id="foot">Tap a pad for the normal sound, long-press for the alt sound. <kbd>Space</kbd> plays and stops.</p>
+</div>
+
+<div class="info" id="info" hidden>
+  <div class="info-card" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <div class="info-head"><h2 id="infoTitle">How to use</h2><span>click or tap anywhere to close ×</span></div>
+    <div class="info-cols">
+      <div class="c1">
+        <h3>PADS</h3>
+        <dl>
+          <dt>Tap / click</dt><dd>Pad on / off with the normal sound</dd>
+          <dt>Long-press</dt><dd>Pad on / off with the alt sound (Shift-click with a mouse)</dd>
+          <dt>Drag</dt><dd>Paint the same state across pads</dd>
+          <dt>Option-click</dt><dd>Clear a pad (Alt-click on Windows)</dd>
+          <dt>Alt pads</dt><dd>Lighter, with a letter: O open hat, B ride bell, X side stick, &gt; accent</dd>
+        </dl>
+        <h3>SOUND</h3>
+        <dl>
+          <dt>Audio</dt><dd>Built-in drum sounds through your device's speakers or headphones. Change the output in your device's sound settings.</dd>
+          <dt>No sound?</dt><dd>Turn the volume up, and on iPad or iPhone check that Silent mode is off.</dd>
+          <dt>MIDI</dt><dd>Plays a MIDI device instead (General MIDI drums, channel 10). Needs Chrome or Edge on a computer.</dd>
+          <dt>Export MIDI</dt><dd id="exportInfo">Saves the whole pattern as a .mid file with tempo and time signature, ready for GarageBand or any DAW.</dd>
+        </dl>
+      </div>
+      <div class="c2">
+        <h3>PAGES</h3>
+        <dl>
+          <dt>Page boxes</dt><dd>Top-left of the grid: choose the page to see and edit</dd>
+          <dt>Green bar</dt><dd>Marks the page that is playing</dd>
+          <dt>Pages 1-4</dt><dd>How many pages the pattern plays through</dd>
+          <dt>Follow</dt><dd>On: the grid shows the playing page. Off: stay on one page while the rest plays.</dd>
+          <dt>Copy / Paste</dt><dd>Duplicate the page you're viewing onto another</dd>
+          <dt>Page 1 to all</dt><dd>Copy page 1 onto pages 2-4</dd>
+          <dt>Clear</dt><dd>Clear page empties this page; Clear all empties every page</dd>
+        </dl>
+        <h3>PLAYBACK</h3>
+        <dl>
+          <dt>Spacebar</dt><dd>Play / stop (with a keyboard)</dd>
+          <dt>1 pad</dt><dd>One 16th note. BPM counts quarter notes.</dd>
+          <dt>Time sig</dt><dd>Sets steps per page and the numbered beats</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+
+/* ================= model (same rules as the Max version) ================= */
+const ROWS = 8, MAXCOLS = 28, MAXPAGES = 4;
+const LANES = [
+  { name: "Kick",      alt: "accent",     tag: ">", col: "#ED5442", tint: "#F8BBB4" },
+  { name: "Snare",     alt: "side stick", tag: "X", col: "#FA9E33", tint: "#FDD8AD" },
+  { name: "Hi-hat",    alt: "open",       tag: "O", col: "#FAD940", tint: "#FDF0B2" },
+  { name: "High tom",  alt: "accent",     tag: ">", col: "#73CC66", tint: "#C7EBC2" },
+  { name: "Mid tom",   alt: "accent",     tag: ">", col: "#4CB899", tint: "#B8E2D6" },
+  { name: "Floor tom", alt: "accent",     tag: ">", col: "#4099CC", tint: "#B2D6EB" },
+  { name: "Ride",      alt: "bell",       tag: "B", col: "#8C7AE6", tint: "#D1CAF5" },
+  { name: "Crash",     alt: "accent",     tag: ">", col: "#D96BCC", tint: "#F0C4EB" }
+];
+const DISPLAY = [7, 6, 3, 4, 5, 2, 1, 0];   // top to bottom: cymbals, toms high to low, hat, snare, kick
+const METERS = [
+  { name: "4/4",  groups: [4, 4, 4, 4] }, { name: "3/4", groups: [4, 4, 4] }, { name: "2/4", groups: [4, 4] },
+  { name: "5/4",  groups: [4, 4, 4, 4, 4] }, { name: "7/4", groups: [4, 4, 4, 4, 4, 4, 4] },
+  { name: "5/8",  groups: [6, 4] }, { name: "6/8", groups: [6, 6] }, { name: "7/8", groups: [4, 4, 6] },
+  { name: "12/8", groups: [6, 6, 6, 6] }
+];
+// GM drum note + velocity per [lane][state-1]
+const MIDI_MAP = [
+  [[36, 95], [36, 127]], [[38, 100], [37, 100]], [[42, 100], [46, 100]], [[50, 95], [50, 127]],
+  [[47, 95], [47, 127]], [[43, 95], [43, 127]], [[51, 100], [53, 110]], [[49, 95], [49, 127]]
+];
+
+const S = {
+  grid: [], meterIndex: 0, cols: 16, groupOf: [], groupStart: [], numPages: 1, viewPage: 0,
+  playPage: -1, cur: -1, follow: true, bpm: 120, output: "audio", volume: 0.75, clipboard: null
+};
+
+function emptyPage() { return Array.from({ length: ROWS }, () => new Array(MAXCOLS).fill(0)); }
+function copyPage(p) { return p.map(r => r.slice()); }
+function buildMeter() {
+  S.groupOf = []; S.groupStart = [];
+  METERS[S.meterIndex].groups.forEach((n, i) => { for (let j = 0; j < n; j++) { S.groupOf.push(i); S.groupStart.push(j === 0); } });
+  S.cols = S.groupOf.length;
+}
+function totalSteps() { return S.cols * S.numPages; }
+function starter() {
+  S.grid = Array.from({ length: MAXPAGES }, emptyPage);
+  const p = { 0: [[0,1],[7,1],[8,2],[10,1]], 1: [[4,1],[12,1],[15,2]], 2: [[0,1],[2,1],[4,1],[6,2],[8,1],[10,1],[12,1],[14,2]], 7: [[0,1]] };
+  for (const r in p) for (const [c, s] of p[r]) S.grid[0][r][c] = s;
+}
+
+/* ---------- saved in this browser only ---------- */
+const STORE = "step-fundamental-tools-v1";
+function load() {
+  starter();
+  try {
+    const d = JSON.parse(localStorage.getItem(STORE) || "null");
+    if (!d) return;
+    if (Array.isArray(d.grid) && d.grid.length === MAXPAGES) S.grid = d.grid.map(p => p.map(r => { const a = new Array(MAXCOLS).fill(0); r.forEach((v, i) => { if (i < MAXCOLS) a[i] = v | 0; }); return a; }));
+    const mi = METERS.findIndex(m => m.name === d.meter); if (mi >= 0) S.meterIndex = mi;
+    if (d.pages >= 1 && d.pages <= 4) S.numPages = d.pages | 0;
+    if (d.bpm >= 40 && d.bpm <= 300) S.bpm = +d.bpm;
+    if (typeof d.follow === "boolean") S.follow = d.follow;
+    if (d.volume >= 0 && d.volume <= 1) S.volume = +d.volume;
+  } catch (e) { /* storage unavailable: keep the starter beat */ }
+}
+let saveTimer = 0;
+function save() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try { localStorage.setItem(STORE, JSON.stringify({ grid: S.grid, meter: METERS[S.meterIndex].name, pages: S.numPages, bpm: S.bpm, follow: S.follow, volume: S.volume })); } catch (e) {}
+  }, 300);
+}
+
+/* ================= grid drawing ================= */
+const canvas = document.getElementById("grid");
+const g = canvas.getContext("2d");
+const geo = { w: 0, h: 0, labelW: 112, headH: 24, rowH: 36, cw: 0, narrow: false };
+
+function rr(x, y, w, h, r) {
+  g.beginPath();
+  if (g.roundRect) g.roundRect(x, y, w, h, r);
+  else { g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+}
+function layout() {
+  const coarse = matchMedia("(pointer: coarse)").matches;
+  const w = canvas.parentElement.clientWidth;
+  geo.narrow = w < 600;
+  geo.labelW = geo.narrow ? 74 : 112;
+  geo.rowH = coarse ? (geo.narrow ? 40 : 46) : (geo.narrow ? 34 : 38);
+  geo.headH = 24;
+  geo.w = w; geo.h = geo.headH + ROWS * geo.rowH;
+  geo.cw = (w - geo.labelW) / S.cols;
+  const dpr = Math.min(window.devicePixelRatio || 1, 3);
+  canvas.style.height = geo.h + "px";
+  canvas.width = Math.round(w * dpr); canvas.height = Math.round(geo.h * dpr);
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  draw();
+}
+function pageBox(p) {
+  const n = MAXPAGES, gap = geo.narrow ? 3 : 4;
+  const bw = Math.min(22, (geo.labelW - 10 - gap * (n - 1)) / n);
+  return { x: 6 + p * (bw + gap), y: 4, w: bw, h: 14 };
+}
+let raf = 0;
+function draw() { if (!raf) raf = requestAnimationFrame(() => { raf = 0; paint(); }); }
+function paint() {
+  const { w, h, labelW, headH, rowH, cw } = geo;
+  const pg = S.grid[S.viewPage];
+  const head = (S.playPage === S.viewPage) ? S.cur : -1;
+  g.clearRect(0, 0, w, h);
+  g.fillStyle = "#1C1C1F"; g.fillRect(0, 0, w, h);
+  g.textBaseline = "alphabetic";
+
+  for (let p = 0; p < MAXPAGES; p++) {             // page boxes
+    const b = pageBox(p), inUse = p < S.numPages;
+    g.fillStyle = p === S.viewPage ? "#EBEBEB" : inUse ? "#525257" : "#2B2B2E";
+    rr(b.x, b.y, b.w, b.h, 4); g.fill();
+    if (p === S.playPage) { g.fillStyle = "#59D973"; rr(b.x + 3, b.y + b.h + 1.5, b.w - 6, 3, 1.5); g.fill(); }
+    g.font = "10px Arial"; g.textAlign = "center";
+    g.fillStyle = p === S.viewPage ? "#1A1A1A" : inUse ? "#D9D9DE" : "#66666B";
+    g.fillText(String(p + 1), b.x + b.w / 2, b.y + 11);
+  }
+  for (let c = 0; c < S.cols; c++) {               // beat numbers / playhead
+    const x = labelW + c * cw;
+    if (c === head) { g.fillStyle = "rgba(255,255,255,.85)"; rr(x + 3, 7, cw - 6, 8, 4); g.fill(); }
+    else if (S.groupStart[c]) { g.fillStyle = "#B2B2B8"; g.font = "11px Arial"; g.textAlign = "center"; g.fillText(String(S.groupOf[c] + 1), x + cw / 2, 16); }
+    else { g.fillStyle = "#5A5A60"; g.beginPath(); g.arc(x + cw / 2, 11, 1.5, 0, 7); g.fill(); }
+  }
+  const dim = S.viewPage >= S.numPages;
+  const gap = cw < 22 ? 2 : 4, rad = Math.min(5, cw / 5);
+  for (let dr = 0; dr < ROWS; dr++) {
+    const r = DISPLAY[dr], L = LANES[r], y = headH + dr * rowH;
+    g.textAlign = "left";
+    g.fillStyle = "#EBEBEB"; g.font = (geo.narrow ? "11px" : "12px") + " Arial";
+    g.fillText(L.name, 8, y + rowH / 2 + (geo.narrow ? 4 : -1));
+    if (!geo.narrow) { g.fillStyle = "#8C8C94"; g.font = "9.5px Arial"; g.fillText("alt: " + L.alt, 8, y + rowH / 2 + 11); }
+    for (let c = 0; c < S.cols; c++) {
+      const px = labelW + c * cw + gap / 2, py = y + gap / 2, pw = cw - gap, ph = rowH - gap, s = pg[r][c];
+      g.globalAlpha = dim && s ? 0.4 : 1;
+      if (s === 0) { g.fillStyle = S.groupOf[c] % 2 === 0 ? "#3D3D40" : "#303033"; rr(px, py, pw, ph, rad); g.fill(); }
+      else if (s === 1) { g.fillStyle = L.col; rr(px, py, pw, ph, rad); g.fill(); }
+      else {
+        g.fillStyle = L.tint; rr(px, py, pw, ph, rad); g.fill();
+        g.strokeStyle = L.col; g.lineWidth = pw > 14 ? 2.5 : 1.5; rr(px + 1.25, py + 1.25, pw - 2.5, ph - 2.5, rad); g.stroke();
+        if (pw > 10) { g.fillStyle = "#1F1F1F"; g.font = "bold " + Math.min(14, ph * 0.42, pw * 0.7) + "px Arial"; g.textAlign = "center"; g.fillText(L.tag, px + pw / 2, py + ph / 2 + Math.min(14, ph * 0.42, pw * 0.7) * 0.36); }
+      }
+      g.globalAlpha = 1;
+      if (c === head) { g.fillStyle = s ? "rgba(255,255,255,.35)" : "rgba(255,255,255,.12)"; rr(px, py, pw, ph, rad); g.fill(); }
+      if (pressFx && pressFx.c === c && pressFx.r === r) { g.strokeStyle = "rgba(255,255,255,.9)"; g.lineWidth = 2; rr(px - 1, py - 1, pw + 2, ph + 2, rad + 1); g.stroke(); }
+    }
+  }
+}
+
+/* ================= pad input: mouse + touch ================= */
+let paintState = 1, dragging = false, lastCell = null, press = null, pressFx = null;
+const LONG_PRESS_MS = 380;
+
+function cellAt(e) {
+  const rect = canvas.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top;
+  if (y >= 0 && y < geo.headH && x < geo.labelW) {
+    for (let p = 0; p < MAXPAGES; p++) { const b = pageBox(p); if (x >= b.x - 2 && x <= b.x + b.w + 2) return { page: p }; }
+    return null;
+  }
+  const c = Math.floor((x - geo.labelW) / geo.cw), dr = Math.floor((y - geo.headH) / geo.rowH);
+  if (x < geo.labelW || y < geo.headH || c < 0 || c >= S.cols || dr < 0 || dr >= ROWS) return null;
+  return { c, r: DISPLAY[dr] };
+}
+function setCell(c, r, s, audition) {
+  const pg = S.grid[S.viewPage];
+  if (pg[r][c] === s) return;
+  pg[r][c] = s; save(); draw();
+  if (audition && s > 0 && !playing) trigger(r, s, null);
+}
+function nextState(cur, mode) {           // mode: "normal" | "alt" | "clear"
+  if (mode === "clear") return 0;
+  if (mode === "alt") return cur === 2 ? 0 : 2;
+  return cur === 0 ? 1 : 0;
+}
+canvas.addEventListener("pointerdown", e => {
+  const hit = cellAt(e);
+  if (!hit) return;
+  if ("page" in hit) { S.viewPage = hit.page; draw(); return; }
+  try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* keep going without capture */ }
+  const cur = S.grid[S.viewPage][hit.r][hit.c];
+  if (e.pointerType === "mouse") {
+    paintState = nextState(cur, e.altKey ? "clear" : e.shiftKey ? "alt" : "normal");
+    setCell(hit.c, hit.r, paintState, true);
+    dragging = true; lastCell = hit;
+    return;
+  }
+  // touch / pen: wait to see whether this is a tap, a drag or a long-press
+  press = { cell: hit, cur, decided: false, timer: setTimeout(() => {
+    if (!press || press.decided) return;
+    press.decided = true;
+    paintState = nextState(press.cur, "alt");
+    setCell(hit.c, hit.r, paintState, true);
+    pressFx = null; dragging = true; lastCell = hit; draw();
+  }, LONG_PRESS_MS) };
+  pressFx = hit; draw();
+});
+canvas.addEventListener("pointermove", e => {
+  const hit = cellAt(e);
+  if (press && !press.decided) {
+    if (!hit || "page" in hit || (hit.c === press.cell.c && hit.r === press.cell.r)) return;
+    clearTimeout(press.timer); press.decided = true; pressFx = null;
+    paintState = nextState(press.cur, "normal");
+    setCell(press.cell.c, press.cell.r, paintState, true);
+    dragging = true; lastCell = press.cell;
+  }
+  if (!dragging || !hit || "page" in hit) return;
+  if (lastCell && hit.c === lastCell.c && hit.r === lastCell.r) return;
+  lastCell = hit; setCell(hit.c, hit.r, paintState, false);
+});
+function endPress() {
+  if (press && !press.decided) {
+    clearTimeout(press.timer);
+    paintState = nextState(press.cur, "normal");
+    setCell(press.cell.c, press.cell.r, paintState, true);
+  }
+  press = null; pressFx = null; dragging = false; lastCell = null; draw();
+}
+canvas.addEventListener("pointerup", endPress);
+canvas.addEventListener("pointercancel", () => { if (press) clearTimeout(press.timer); press = null; pressFx = null; dragging = false; draw(); });
+canvas.addEventListener("contextmenu", e => e.preventDefault());
+
+/* ================= sound: Web Audio drum synth (mirrors the Max patch) ================= */
+let ac = null, master = null, noiseBuf = null, openHatChoke = null;
+function ensureAudio() {
+  if (!ac) {
+    try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = S.volume * 0.8;
+    const comp = ac.createDynamicsCompressor();        // keeps stacked hits from clipping
+    comp.threshold.value = -8; comp.knee.value = 6; comp.ratio.value = 10; comp.attack.value = 0.002; comp.release.value = 0.15;
+    master.connect(comp); comp.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate * 2, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    const b = ac.createBuffer(1, 1, 22050), s = ac.createBufferSource(); s.buffer = b; s.connect(ac.destination); s.start(0); // iOS unlock
+  }
+  if (ac.state !== "running") ac.resume();
+  return ac;
+}
+function out(level) { const o = ac.createGain(); o.gain.value = level; o.connect(master); return o; }
+function env(t, peak, dec) {                           // squared linear decay, like line~ -> *~ itself
+  const e = ac.createGain(), n = 48, curve = new Float32Array(n);
+  for (let i = 0; i < n; i++) { const x = 1 - i / (n - 1); curve[i] = (peak * x) * (peak * x); }
+  e.gain.value = 0; e.gain.setValueCurveAtTime(curve, t, dec); return e;
+}
+function noise(t, dur) { const s = ac.createBufferSource(); s.buffer = noiseBuf; s.start(t, Math.random() * 1.5); s.stop(t + dur + 0.05); return s; }
+function tone(t, f0, f1, sweep, dur) {
+  const o = ac.createOscillator(); o.type = "sine";
+  o.frequency.setValueAtTime(f0, t); if (f1 !== f0) o.frequency.linearRampToValueAtTime(f1, t + sweep);
+  o.start(t); o.stop(t + dur + 0.05); return o;
+}
+function filt(type, f, q) { const b = ac.createBiquadFilter(); b.type = type; b.frequency.value = f; b.Q.value = q; return b; }
+function chain(...n) { for (let i = 0; i < n.length - 1; i++) n[i].connect(n[i + 1]); return n[n.length - 1]; }
+
+const VOICES = {
+  kick(t, acc) { const d = acc ? .52 : .45; chain(tone(t, 170, 45, .07, d), env(t, acc ? 1 : .8, d), out(.9)); },
+  snare(t) { chain(noise(t, .22), filt("highpass", 1200, .7), filt("highpass", 1200, .7), env(t, 1, .22), out(.5));
+             chain(tone(t, 185, 185, 0, .09), env(t, 1, .09), out(.4)); },
+  stick(t) { chain(noise(t, .05), filt("bandpass", 1750, 5), env(t, 1, .045), out(2.2));
+             chain(tone(t, 830, 830, 0, .045), env(t, 1, .045), out(.22)); },
+  hat(t, open) {
+    if (openHatChoke) { openHatChoke.gain.setTargetAtTime(0, t, .008); openHatChoke = null; }   // closed chokes open
+    const d = open ? .55 : .07;
+    const last = chain(noise(t, d), filt("highpass", 7500, .7), filt("highpass", 7500, .7), env(t, open ? .9 : 1, d));
+    if (open) { const ch = ac.createGain(); last.connect(ch); ch.connect(out(.4)); openHatChoke = ch; } else last.connect(out(.4));
+  },
+  tom(t, acc, f0, f1, sw, dec) { const d = acc ? dec + .06 : dec; chain(tone(t, f0, f1, sw, d), env(t, acc ? 1 : .8, d), out(.6)); },
+  ride(t, bell) {
+    const d = bell ? 1.2 : 1.4;
+    chain(noise(t, d), filt("bandpass", 5200, 9), env(t, bell ? .6 : 1, d), out(1.1));
+    if (bell) { const sum = ac.createGain(); [780, 1170, 2340].forEach(f => tone(t, f, f, 0, 1.1).connect(sum)); chain(sum, env(t, 1, 1.1), out(.16)); }
+  },
+  crash(t, acc) { const d = acc ? 2.7 : 2.2; chain(noise(t, d), filt("highpass", 3000, .7), filt("highpass", 3000, .7), env(t, acc ? 1 : .8, d), out(.32)); }
+};
+function playVoice(r, s, t) {
+  const alt = s === 2;
+  switch (r) {
+    case 0: VOICES.kick(t, alt); break;
+    case 1: alt ? VOICES.stick(t) : VOICES.snare(t); break;
+    case 2: VOICES.hat(t, alt); break;
+    case 3: VOICES.tom(t, alt, 280, 200, .12, .38); break;
+    case 4: VOICES.tom(t, alt, 210, 150, .14, .45); break;
+    case 5: VOICES.tom(t, alt, 150, 100, .16, .55); break;
+    case 6: VOICES.ride(t, alt); break;
+    case 7: VOICES.crash(t, alt); break;
+  }
+}
+
+/* ---------- live MIDI out (Chrome / Edge on a computer) ---------- */
+let midiAccess = null, midiOut = null;
+const outAudio = document.getElementById("outAudio"), outMidi = document.getElementById("outMidi");
+const midiDev = document.getElementById("midiDev"), midiDevGroup = document.getElementById("midiDevGroup"), midiHint = document.getElementById("midiHint");
+function refreshMidiDevices() {
+  const outs = midiAccess ? [...midiAccess.outputs.values()] : [];
+  const keep = midiDev.value;
+  midiDev.replaceChildren(...outs.map(o => { const op = document.createElement("option"); op.value = o.id; op.textContent = o.name; return op; }));
+  if (outs.some(o => o.id === keep)) midiDev.value = keep;
+  midiOut = outs.find(o => o.id === midiDev.value) || null;
+  outMidi.disabled = outs.length === 0;
+  midiHint.textContent = outs.length ? "" : (midiAccess ? "No MIDI devices found." : "");
+  if (!outs.length && S.output === "midi") setOutput("audio");
+}
+function initMidi() {
+  outMidi.disabled = true;
+  if (!navigator.requestMIDIAccess) { outMidi.title = "MIDI out needs Chrome or Edge on a computer"; return; }
+  navigator.requestMIDIAccess().then(a => { midiAccess = a; a.onstatechange = refreshMidiDevices; refreshMidiDevices(); })
+    .catch(() => { outMidi.title = "MIDI isn't available in this view"; });
+}
+midiDev.addEventListener("change", () => { midiOut = midiAccess && midiAccess.outputs.get(midiDev.value) || null; });
+function sendMidi(r, s, t) {
+  if (!midiOut) return;
+  const [note, vel] = MIDI_MAP[r][s - 1];
+  const at = performance.now() + Math.max(0, (t - ac.currentTime) * 1000);
+  try { midiOut.send([0x99, note, vel], at); midiOut.send([0x89, note, 0], at + stepDur() * 500); } catch (e) {}
+}
+function setOutput(mode) {
+  S.output = mode;
+  outAudio.setAttribute("aria-pressed", String(mode === "audio"));
+  outMidi.setAttribute("aria-pressed", String(mode === "midi"));
+  midiDevGroup.hidden = mode !== "midi";
+  document.getElementById("volGroup").hidden = mode !== "audio";
+}
+outAudio.addEventListener("click", () => setOutput("audio"));
+outMidi.addEventListener("click", () => setOutput("midi"));
+
+function trigger(r, s, t) {
+  if (!ensureAudio()) return;
+  const when = t == null ? ac.currentTime + 0.005 : t;
+  if (S.output === "midi") sendMidi(r, s, when); else playVoice(r, s, when);
+}
+
+/* ================= transport: look-ahead scheduler ================= */
+let playing = false, timer = 0, nextTime = 0, stepN = 0, queue = [], vis = 0;
+function stepDur() { return 60 / S.bpm / 4; }
+function schedule() {
+  const total = totalSteps();
+  while (nextTime < ac.currentTime + 0.12) {
+    stepN = ((stepN % total) + total) % total;
+    const page = Math.floor(stepN / S.cols), col = stepN % S.cols, pg = S.grid[page];
+    for (let r = 0; r < ROWS; r++) if (pg[r][col]) trigger(r, pg[r][col], nextTime);
+    queue.push({ n: stepN, t: nextTime });
+    nextTime += stepDur(); stepN++;
+  }
+}
+function visuals() {
+  if (!playing) return;
+  while (queue.length && queue[0].t <= ac.currentTime) {
+    const { n } = queue.shift();
+    S.playPage = Math.floor(n / S.cols); S.cur = n % S.cols;
+    if (S.follow) S.viewPage = S.playPage;
+    draw();
+  }
+  vis = requestAnimationFrame(visuals);
+}
+const playBtn = document.getElementById("playBtn");
+function setPlaying(on) {
+  if (on === playing) return;
+  if (on) {
+    if (!ensureAudio()) { toast("This browser can't play audio"); return; }
+    playing = true; stepN = 0; queue = []; nextTime = ac.currentTime + 0.06;
+    schedule(); timer = setInterval(schedule, 25); vis = requestAnimationFrame(visuals);
+  } else {
+    playing = false; clearInterval(timer); cancelAnimationFrame(vis); queue = [];
+    if (openHatChoke && ac) { openHatChoke.gain.setTargetAtTime(0, ac.currentTime, .01); openHatChoke = null; }
+    S.cur = -1; S.playPage = -1; draw();
+  }
+  playBtn.setAttribute("aria-pressed", String(playing));
+  document.getElementById("playLabel").textContent = playing ? "Stop" : "Play";
+  document.getElementById("playIcon").setAttribute("d", playing ? "M2 2h10v10H2z" : "M2 1l11 6-11 6z");
+}
+playBtn.addEventListener("click", () => setPlaying(!playing));
+document.addEventListener("keydown", e => {
+  if (e.code !== "Space" && e.key !== " ") return;
+  if (!info.hidden) return;
+  const t = e.target;
+  if (t && (t.tagName === "INPUT" && t.type !== "checkbox" && t.type !== "range" || t.tagName === "SELECT" || t.isContentEditable)) return;
+  e.preventDefault();
+  if (!e.repeat) setPlaying(!playing);       // holding the key does not flip it again
+});
+document.addEventListener("visibilitychange", () => { if (document.hidden && playing) { /* keep playing; timers may slow in background */ } });
+
+/* ================= controls ================= */
+const bpmIn = document.getElementById("bpm"), meterSel = document.getElementById("meter"), pagesSeg = document.getElementById("pagesSeg");
+const followIn = document.getElementById("follow"), volIn = document.getElementById("vol");
+METERS.forEach((m, i) => { const o = document.createElement("option"); o.value = i; o.textContent = m.name; meterSel.append(o); });
+for (let p = 1; p <= MAXPAGES; p++) { const b = document.createElement("button"); b.type = "button"; b.textContent = p; b.dataset.p = p; pagesSeg.append(b); }
+
+function syncControls() {
+  bpmIn.value = S.bpm; meterSel.value = S.meterIndex; followIn.checked = S.follow; volIn.value = S.volume;
+  pagesSeg.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.p === S.numPages)));
+}
+bpmIn.addEventListener("change", () => {
+  let v = Math.round(+bpmIn.value); if (!isFinite(v) || v <= 0) v = S.bpm;
+  S.bpm = Math.min(300, Math.max(40, v)); bpmIn.value = S.bpm; save();
+});
+meterSel.addEventListener("change", () => {
+  S.meterIndex = +meterSel.value; buildMeter();
+  if (S.cur >= S.cols) { S.cur = -1; }
+  layout(); save();
+});
+pagesSeg.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  S.numPages = +b.dataset.p; if (S.playPage >= S.numPages) { S.playPage = -1; S.cur = -1; }
+  syncControls(); draw(); save();
+});
+followIn.addEventListener("change", () => { S.follow = followIn.checked; save(); });
+volIn.addEventListener("input", () => { S.volume = +volIn.value; if (master) master.gain.setTargetAtTime(S.volume * 0.8, ac.currentTime, .02); save(); });
+document.getElementById("clearPage").addEventListener("click", () => { S.grid[S.viewPage] = emptyPage(); draw(); save(); toast("Cleared page " + (S.viewPage + 1)); });
+document.getElementById("clearAll").addEventListener("click", () => { S.grid = Array.from({ length: MAXPAGES }, emptyPage); draw(); save(); toast("Cleared all pages"); });
+document.getElementById("copyPage").addEventListener("click", () => { S.clipboard = copyPage(S.grid[S.viewPage]); toast("Copied page " + (S.viewPage + 1)); });
+document.getElementById("pastePage").addEventListener("click", () => {
+  if (!S.clipboard) { toast("Copy a page first"); return; }
+  S.grid[S.viewPage] = copyPage(S.clipboard); draw(); save(); toast("Pasted onto page " + (S.viewPage + 1));
+});
+document.getElementById("copyFirst").addEventListener("click", () => {
+  for (let p = 1; p < MAXPAGES; p++) S.grid[p] = copyPage(S.grid[0]); draw(); save(); toast("Copied page 1 to pages 2-4");
+});
+
+/* ---------- toast ---------- */
+const toastEl = document.getElementById("toast"); let toastT = 0;
+function toast(msg) { toastEl.textContent = msg; toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), 2500); }
+
+/* ---------- info ---------- */
+const info = document.getElementById("info");
+document.getElementById("infoBtn").addEventListener("click", () => { info.hidden = false; });
+info.addEventListener("click", () => { info.hidden = true; document.getElementById("infoBtn").focus(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !info.hidden) info.hidden = true; });
+
+/* ================= Export MIDI ================= */
+function vlq(n) { const b = [n & 0x7F]; while ((n >>= 7) > 0) b.unshift((n & 0x7F) | 0x80); return b; }
+function u32be(n) { return [(n >>> 24) & 255, (n >>> 16) & 255, (n >>> 8) & 255, n & 255]; }
+function ascii(s) { return [...s].map(c => c.charCodeAt(0) & 0x7F); }
+function buildMidi() {
+  const PPQ = 96, STEP = PPQ / 4, LEN = STEP / 2, steps = totalSteps(), ev = [];
+  for (let n = 0; n < steps; n++) {
+    const pg = S.grid[Math.floor(n / S.cols)], col = n % S.cols, t = n * STEP;
+    for (let r = 0; r < ROWS; r++) { const s = pg[r][col]; if (!s) continue; const [note, vel] = MIDI_MAP[r][s - 1];
+      ev.push([t, 1, [0x99, note, vel]], [t + LEN, 0, [0x89, note, 0]]); }
+  }
+  ev.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const [num, den] = METERS[S.meterIndex].name.split("/").map(Number), us = Math.round(60000000 / S.bpm), name = ascii("STEP - Fundamental Tools");
+  let trk = [0, 0xFF, 0x03, ...vlq(name.length), ...name,
+             0, 0xFF, 0x51, 0x03, (us >> 16) & 255, (us >> 8) & 255, us & 255,
+             0, 0xFF, 0x58, 0x04, num, Math.round(Math.log2(den)), 24, 8];
+  let last = 0;
+  for (const [t, , bytes] of ev) { trk.push(...vlq(t - last), ...bytes); last = t; }
+  trk.push(...vlq(Math.max(0, steps * STEP - last)), 0xFF, 0x2F, 0x00);
+  return new Uint8Array([...ascii("MThd"), ...u32be(6), 0, 0, 0, 1, (PPQ >> 8) & 255, PPQ & 255, ...ascii("MTrk"), ...u32be(trk.length), ...trk]);
+}
+// minimal one-file ZIP (stored, no compression) so the .mid can travel through the save prompt
+const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(b) { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = CRC_T[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipOne(name, data) {
+  const nm = new TextEncoder().encode(name), crc = crc32(data), sz = data.length, d = new Date();
+  const time = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+  const date = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+  const le16 = v => [v & 255, (v >> 8) & 255], le32 = v => [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255];
+  const local = [...le32(0x04034b50), ...le16(20), ...le16(0), ...le16(0), ...le16(time), ...le16(date), ...le32(crc), ...le32(sz), ...le32(sz), ...le16(nm.length), ...le16(0)];
+  const central = [...le32(0x02014b50), ...le16(20), ...le16(20), ...le16(0), ...le16(0), ...le16(time), ...le16(date), ...le32(crc), ...le32(sz), ...le32(sz), ...le16(nm.length), ...le16(0), ...le16(0), ...le16(0), ...le16(0), ...le32(0), ...le32(0)];
+  const cOff = local.length + nm.length + sz, cLen = central.length + nm.length;
+  const end = [...le32(0x06054b50), ...le16(0), ...le16(0), ...le16(1), ...le16(1), ...le32(cLen), ...le32(cOff), ...le16(0)];
+  const out = new Uint8Array(cOff + cLen + end.length); let o = 0;
+  for (const part of [local, nm, data, central, nm, end]) { out.set(part, o); o += part.length; }
+  return out;
+}
+const exportBtn = document.getElementById("exportBtn");
+let downloadsP = null;
+if (window.claude && typeof window.claude.use === "function") {
+  document.getElementById("exportInfo").textContent = "Saves the whole pattern as a .mid file (inside a .zip) with tempo and time signature, ready for GarageBand or any DAW.";
+  downloadsP = window.claude.use("downloads");
+  downloadsP.then(ns => { if (!ns) { exportBtn.hidden = true; } });
+}
+exportBtn.addEventListener("click", async () => {
+  const base = "STEP " + S.bpm + "bpm " + METERS[S.meterIndex].name.replace("/", "-");
+  const mid = buildMidi();
+  if (downloadsP) {
+    const dl = await downloadsP;
+    if (!dl) { exportBtn.hidden = true; toast("Saving files isn't available here"); return; }
+    try { await dl.save({ filename: base + ".zip", data: new Blob([zipOne(base + ".mid", mid)]) }); toast("Saved " + base + ".zip"); }
+    catch (e) {
+      const code = e && e.code;
+      if (code === "declined") toast("Export cancelled");
+      else if (code === "rate_limited") toast("A save prompt is already open");
+      else toast("Couldn't save the file here");
+    }
+    return;
+  }
+  // opened outside Claude: plain download of the .mid
+  const url = URL.createObjectURL(new Blob([mid], { type: "audio/midi" }));
+  const a = document.createElement("a"); a.href = url; a.download = base + ".mid"; document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000); toast("Downloaded " + base + ".mid");
+});
+
+/* ================= start ================= */
+load(); buildMeter(); syncControls(); setOutput("audio"); initMidi();
+if (matchMedia("(pointer: fine)").matches && !matchMedia("(pointer: coarse)").matches)
+  document.getElementById("foot").innerHTML = "Click a pad for the normal sound, Shift-click for the alt sound. <kbd>Space</kbd> plays and stops.";
+new ResizeObserver(layout).observe(canvas.parentElement);
+layout();
+window.__step = { S, buildMidi, zipOne, setPlaying, get playing() { return playing; }, get ac() { return ac; } };   // for testing
+})();
+</script>
+
+</body>
+</html>
